@@ -51,7 +51,29 @@ Route::get('/chi-siamo', function () {
     return view('subpages.about');
 });
 
-Route::get('/comics', [ComicController::class,'index'])->name('comics.index');
-Route::get('/comics/(id)', [ComicController::class,'show'])->name('comics.index');
+/* ----------- CRUD Comics ----------- */
+
+Route::resource('comics', ComicController::class);
+
+/* Read */
+
+// Route::get('/comics', [ComicController::class,'index'])->name('comics.index');
+// Route::get('/comics/(id)', [ComicController::class,'show'])->name('comics.index');
+
+/* Create */
+
+// Route::get('/comics/create', [ComicController::class,'create'])->name('comics.create');
+// Route::post('/comics/add', [ComicController::class,'store'])->name('comics.store');
+
+/* Update */
+
+// Route::get('/comics/(id)/update', [ComicController::class,'edit'])->name('comics.edit');
+// Route::put('/comics/(request)/(id)/update', [ComicController::class,'update'])->name('comics.update');
+
+/* Delete */
+
+// Route::delete('/comics/(id)/delete', [ComicController::class,'destroy'])->name('comics.destroy');
+
+/* ----------- ---------- ----------- */
 
 // Route::get(PERCORSO CON CUI ARRIVARE ALLA PAGINA, FUNZIONE DI CALLBACK CHE MI CREA LA RISPOSTA DA DARE ALL UTENTE)
