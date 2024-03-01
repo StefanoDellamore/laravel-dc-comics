@@ -20,7 +20,7 @@ class ComicController extends Controller
     {
         $comics = Comic::all();
 
-        return view('comics.index', compact('comics'));
+        return view ('comics.index', compact('comics'));
     }
 
     /**
@@ -72,13 +72,13 @@ class ComicController extends Controller
         // TODO: valido i dati, ma lo faremo in futuro
 
         $comic = new Comic();
-        $comic->title = $ComicData['title'];
-        $comic->description = $ComicData['description'];
-        $comic->thumb = $ComicData['thumb'];
-        $comic->price = $ComicData['price'];
-        $comic->series = $ComicData['series'];
-        $comic->sale_date = $ComicData['sale_date'];
-        $comic->type = $ComicData['type'];
+        $comic->title = $comicData['title'];
+        $comic->description = $comicData['description'];
+        $comic->thumb = $comicData['thumb'];
+        $comic->price = $comicData['price'];
+        $comic->series = $comicData['series'];
+        $comic->sale_date = $comicData['sale_date'];
+        $comic->type = $comicData['type'];
         $comic->save();
 
         return redirect()->route('comics.show', ['comic' => $comic->id]);
