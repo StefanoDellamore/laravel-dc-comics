@@ -27,7 +27,11 @@
                     <td>{{ $comic->title }}</td>
                     <td>${{ $comic->price }}</td>
                     <td>{{ $comic->series }}</td>
-                    <td></td>
+                    <td>
+                        <a href="{{route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">
+                            vedi
+                        </a>    
+                    </td>
                 </tr>
                 @endforeach               
             </tbody>

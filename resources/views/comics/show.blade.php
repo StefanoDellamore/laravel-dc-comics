@@ -5,12 +5,17 @@
 @section('main-content')
 
 <h1>
-    Comics Index
+    {{ $comic->title }}
 </h1>
 
 <div class="row">
     <div class="col">
-       <div class="card">
+        <div class="mb-4">
+            <a href="{{ route('comics.index') }}" class="btn btn-primary">
+                Torna all'index dei comics
+            </a>
+        </div>
+        <div class="card">
         <h3>
             {{ $comic->title }}
         </h3>
