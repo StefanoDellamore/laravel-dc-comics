@@ -10,6 +10,13 @@
 
 <div class="row">
     <div class="col">
+
+        <div class="mb-4">
+            <a href="{{ route('comics.create') }}" class="btn btn-success w-100 fs-5">
+                + Aggiungi
+            </a>
+        </div>
+
         <table class="table">
             <thead>
                 <tr>
@@ -30,6 +37,9 @@
                     <td>
                         <a href="{{route('comics.show', ['comic' => $comic->id]) }}" class="btn btn-primary">
                             vedi
+                        </a>
+                        <a href="{{route('comics.edit', ['comic' => $comic->id]) }}" class="btn btn-warning">
+                            modifica
                         </a>    
                     </td>
                 </tr>
