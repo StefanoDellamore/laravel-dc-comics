@@ -15,6 +15,16 @@
             </a>
         </div>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('comics.update', ['comic' => $comic->id]) }}" method="POST">
             {{--
                 C   Cross
@@ -29,21 +39,21 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input
-                    value="{{ $comic->title }}"
+                    value="{{ old('src', $comic->title) }}"
                     type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo..." maxlength="1024">
             </div>
 
             <div class="mb-3">
                 <label for="series" class="form-label">Serie <span class="text-danger">*</span></label>
                 <input
-                    value="{{ $comic->series }}"
+                    value="{{ old('series', $comic->series) }}"
                     type="text" class="form-control" id="series" name="series" placeholder="Inserisci la serie..." maxlength="64" required>
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione <span class="text-danger">*</span></label>
                 <input
-                    value="{{ $comic->description }}"
+                    value="{{ old('description', $comic->description) }}"
                     type="text" class="form-control" id="description" name="description" placeholder="Inserisci la descrizione..." maxlength="16" required>
             </div>
 

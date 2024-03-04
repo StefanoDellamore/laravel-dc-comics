@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 // Models
 use App\Models\Comic;
 
+// Form Request
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
+
 class ComicController extends Controller
 {
     /*
@@ -44,22 +48,29 @@ class ComicController extends Controller
         return view('comics.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        $comicData = $request->all();
+        $comicData = $request->validated();
 
-        $comic = new Comic();
-        $comic->title = $comicData['title'];
-        $comic->description = $comicData['description'];
-        $comic->thumb = $comicData['thumb'];
-        $comic->price = $comicData['price'];
-        $comic->series = $comicData['series'];
-        $comic->sale_date = $comicData['sale_date'];
-        $comic->type = $comicData['type'];
-        $comic->save();
+        $comic = Comic::create($comicData);
+
+
+        //$comicData = $request->all();
+
+        //$comic = new Comic();
+        //$comic->title = $comicData['title'];
+        //$comic->description = $comicData['description'];
+        //$comic->thumb = $comicData['thumb'];
+        //$comic->price = $comicData['price'];
+        //$comic->series = $comicData['series'];
+        //$comic->sale_date = $comicData['sale_date']; 
+        //$comic->type = $comicData['type'];
+        //$comic->save();
 
         return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
+        
+
     /* -------------- FINE CREATE -------------- */
 
     /*
@@ -76,9 +87,9 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $comicData = $request ->all();
+        $comicData = $request ->validated();
 
         $comic -> update($comicData);
 

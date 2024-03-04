@@ -21,16 +21,31 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo..." maxlength="255">
+                @error('src')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="series" class="form-label">Serie <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="series" name="series" placeholder="Inserisci il nome della serie..." maxlength="255" required>
+                @error('src')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
                 <textarea class="form-control" id="description" name="description" rows="3" placeholder="Inserisci la descrizione..."></textarea>
+                @error('src')
+                    <div class="alert alert-danger">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <div>
