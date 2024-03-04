@@ -20,12 +20,12 @@
 
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo..." maxlength="1024">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Inserisci il titolo..." maxlength="255">
             </div>
 
             <div class="mb-3">
                 <label for="series" class="form-label">Serie <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="series" name="series" placeholder="Inserisci il nome della serie..." maxlength="64" required>
+                <input type="text" class="form-control" id="series" name="series" placeholder="Inserisci il nome della serie..." maxlength="255" required>
             </div>
 
             <div class="mb-3">
